@@ -5,9 +5,6 @@ os:
 env: 
   matrix:
   - VERSION=1
-  - VERSION=2
-  - VERSION=3
-  - VERSION=4
 addons:
   apt:
     sources:
@@ -15,12 +12,7 @@ addons:
     packages:
     - bsdtar
     - doxygen
-install: 
 script:
 - make hello
-before_install:
-- openssl aes-256-cbc -K $encrypted_3b52e9352b1f_key -iv $encrypted_3b52e9352b1f_iv
-  -in travisci_rsa.enc -out  ~/.ssh/id_rsa -d
-- chmod 0600  ~/.ssh/id_rsa
 after_success: 
 - ./publish.sh
